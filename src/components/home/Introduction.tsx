@@ -10,11 +10,11 @@ const Introduction = (): JSX.Element => (
   <HomeCard background={`url(${bubbles})`} compact>
     <VStack paddingY="7">
       <Heading textAlign="center" size="4xl" letterSpacing="tighter">
-        Conecta tu negocio a Internet
+        ¿Aplicación móvil?
       </Heading>
       <Box height="2" />
-      <Text textAlign="center" fontSize="xl">
-        y dale doble click a ese mundo de posibilidades
+      <Text textAlign="center" fontSize="xl" fontWeight="medium">
+        Nosotros te cubrimos
       </Text>
       <Box height="4" />
       <ContactUsButton />
@@ -23,6 +23,12 @@ const Introduction = (): JSX.Element => (
         as={RouterLink}
         to="/proyectos"
         colorScheme="gray"
+        willChange="filter"
+        filter="none"
+        transition="all 0.2s ease"
+        _hover={{
+          filter: 'drop-shadow(0 0 2em #ffffff)',
+        }}
         rightIcon={<ArrowForwardIcon />}
       >
         Explora nuestros proyectos

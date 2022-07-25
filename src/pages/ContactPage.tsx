@@ -4,15 +4,11 @@ import { useSearchParams } from 'react-router-dom'
 import {
   Box,
   Button,
-  Checkbox,
-  CheckboxGroup,
   FormControl,
-  FormHelperText,
   FormLabel,
   Heading,
   Image,
   Textarea,
-  Tooltip,
   useToast,
   VStack,
 } from '@chakra-ui/react'
@@ -21,11 +17,11 @@ import * as yup from 'yup'
 
 import TextInput from '../components/validatedInputs/TextInput'
 
-import { ourServices } from '../config/brandInformation'
 import { errorToast, successToast } from '../components/contact/statusToasts'
 
 import layeredWavesUp from '../assets/layered-waves-up.svg'
 import layeredWavesDown from '../assets/layered-waves-down.svg'
+import { CheckIcon } from '@chakra-ui/icons'
 
 const ContactPage = (): JSX.Element => {
   const encode = (data: FormValues) => {
@@ -52,10 +48,9 @@ const ContactPage = (): JSX.Element => {
   })
 
   interface FormValues {
-    [k: string]: string | string[]
+    [k: string]: string
     name: string
     email: string
-    services: string[]
     message: string
   }
 
@@ -67,7 +62,6 @@ const ContactPage = (): JSX.Element => {
   const initialFormValues: FormValues = {
     name: '',
     email: '',
-    services: defaultCheckboxesValue ? [defaultCheckboxesValue] : [],
     message: '',
   }
 
@@ -156,43 +150,6 @@ const ContactPage = (): JSX.Element => {
                       />
                     )}
                   </Field>
-                  <Field name="services" type="checkbox">
-                    {() => (
-                      <FormControl as="fieldset">
-                        <FormLabel as="legend">Servicios</FormLabel>
-                        <CheckboxGroup
-                          defaultValue={[defaultCheckboxesValue ?? '']}
-                        >
-                          <VStack alignItems="start">
-                            {ourServices.map(({ title, isComingSoon }) => (
-                              <Tooltip
-                                key={title}
-                                label="Este servicio no está disponible actualmente"
-                                isDisabled={!isComingSoon}
-                                shouldWrapChildren
-                                hasArrow
-                              >
-                                <Checkbox
-                                  key={title}
-                                  id="services"
-                                  onChange={handleChange}
-                                  onBlur={handleBlur}
-                                  value={title}
-                                  isDisabled={isComingSoon}
-                                >
-                                  {title}
-                                </Checkbox>
-                              </Tooltip>
-                            ))}
-                          </VStack>
-                        </CheckboxGroup>
-                        <FormHelperText>
-                          Selecciona los servicios que sean necesarios para los
-                          requerimientos de tu proyecto
-                        </FormHelperText>
-                      </FormControl>
-                    )}
-                  </Field>
                   <Field name="message" type="textarea">
                     {() => (
                       <FormControl>
@@ -207,7 +164,12 @@ const ContactPage = (): JSX.Element => {
                       </FormControl>
                     )}
                   </Field>
-                  <Button isLoading={isSubmitting} type="submit">
+                  <Button
+                    isLoading={isSubmitting}
+                    type="submit"
+                    size="lg"
+                    leftIcon={<CheckIcon />}
+                  >
                     Enviar
                   </Button>
                 </VStack>

@@ -9,8 +9,8 @@ const HomePage = (): JSX.Element => {
   return (
     <VStack>
       <Introduction />
-      <WhyToChooseUs />
       <WhatWeOffer />
+      <WhyToChooseUs />
       <CTA />
     </VStack>
   )

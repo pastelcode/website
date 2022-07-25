@@ -34,6 +34,9 @@ const customizedTheme = {
       100: '#A3B1F5',
       50: '#ACB9F6',
     },
+    body: {
+      500: '#091220',
+    },
   },
   fonts: {
     body: 'Inter, system-ui, sans-serif',

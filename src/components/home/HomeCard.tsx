@@ -3,7 +3,7 @@ import { Box } from '@chakra-ui/react'
 interface Props {
   background?: string
   compact?: boolean
-  children: JSX.Element
+  children: JSX.Element | JSX.Element[]
 }
 
 const HomeCard = ({ background, compact, children }: Props): JSX.Element => (

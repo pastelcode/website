@@ -12,6 +12,7 @@ import NavBar from './navbar/NavBar'
 import customizedTheme from '../theme'
 import ContactPage from '../pages/ContactPage'
 import NotFoundPage from '../pages/NotFoundPage'
+import ProjectsPage from '../pages/ProjectsPage'
 
 const theme = extendTheme(
   customizedTheme,
@@ -26,6 +27,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/contacto" element={<ContactPage />} />
+          <Route path="/proyectos" element={<ProjectsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />

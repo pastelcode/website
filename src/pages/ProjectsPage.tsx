@@ -9,21 +9,18 @@ import Loading from '../components/projects/Loading'
 import Error from '../components/projects/Error'
 import NoProjects from '../components/projects/NoProjects'
 import ProjectsGrid from '../components/projects/ProjectsGrid'
-import bubbles from '../assets/bubbles.svg'
 
 const ProjectsPage = (): JSX.Element => {
   useEffect(() => {
     const getProjects = async (): Promise<void> => {
       setIsLoading(true)
-      const { data, error } = await supabase
-        .from<Project>('projects')
-        .select('*')
-      if (error !== null) {
+      const { data, error } = await supabase.from('projects').select('*')
+      if (error !== undefined) {
         setError(error)
         setIsLoading(false)
         return
       }
-      setProjects(data!)
+      setProjects(data)
       setIsLoading(false)
     }
 
@@ -31,7 +28,7 @@ const ProjectsPage = (): JSX.Element => {
   }, [])
 
   const [projects, setProjects] = useState<Project[]>([])
-  const [error, setError] = useState<PostgrestError | null>(null)
+  const [error, setError] = useState<PostgrestError | undefined>(undefined)
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   return (

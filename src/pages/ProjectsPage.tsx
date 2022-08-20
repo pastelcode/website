@@ -3,27 +3,24 @@ import { PostgrestError } from '@supabase/supabase-js'
 import { useEffect, useState } from 'react'
 import { BiTask } from 'react-icons/bi'
 import HomeCard from '../components/home/HomeCard'
-import supabase from '../supabaseClient'
+import supabase from '../database/supabaseClient'
 import Project from '../models/projectModel'
 import Loading from '../components/projects/Loading'
 import Error from '../components/projects/Error'
 import NoProjects from '../components/projects/NoProjects'
 import ProjectsGrid from '../components/projects/ProjectsGrid'
-import bubbles from '../assets/bubbles.svg'
 
 const ProjectsPage = (): JSX.Element => {
   useEffect(() => {
     const getProjects = async (): Promise<void> => {
       setIsLoading(true)
-      const { data, error } = await supabase
-        .from<Project>('projects')
-        .select('*')
-      if (error !== null) {
+      const { data, error } = await supabase.from('projects').select('*')
+      if (error !== undefined) {
         setError(error)
         setIsLoading(false)
         return
       }
-      setProjects(data!)
+      setProjects(data as Project[])
       setIsLoading(false)
     }
 
@@ -31,7 +28,7 @@ const ProjectsPage = (): JSX.Element => {
   }, [])
 
   const [projects, setProjects] = useState<Project[]>([])
-  const [error, setError] = useState<PostgrestError | null>(null)
+  const [error, setError] = useState<PostgrestError | undefined>(undefined)
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   return (

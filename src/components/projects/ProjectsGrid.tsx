@@ -34,25 +34,26 @@ const ProjectsGrid = ({ projects }: { projects: Project[] }): JSX.Element => {
             <Box height="1" />
             <Text textAlign="center">{project.description}</Text>
             <Box height="3" />
-            {project.playStoreLink ||
-              (project.appStoreLink && (
-                <HStack width="100%">
-                  {project.playStoreLink && (
-                    <ButtonLink
-                      name="Play Store"
-                      icon={<FaGooglePlay />}
-                      link={project.playStoreLink}
-                    />
-                  )}
-                  {project.appStoreLink && (
-                    <ButtonLink
-                      name="App Store"
-                      icon={<FaApple />}
-                      link={project.appStoreLink}
-                    />
-                  )}
-                </HStack>
-              ))}
+            {project.playStoreLink || project.appStoreLink ? (
+              <HStack width="100%">
+                {project.playStoreLink && (
+                  <ButtonLink
+                    name="Play Store"
+                    icon={<FaGooglePlay />}
+                    link={project.playStoreLink}
+                    marginBottom={4}
+                  />
+                )}
+                {project.appStoreLink && (
+                  <ButtonLink
+                    name="App Store"
+                    icon={<FaApple />}
+                    link={project.appStoreLink}
+                    marginBottom={4}
+                  />
+                )}
+              </HStack>
+            ) : null}
             {project.githubLink && (
               <ButtonLink
                 name="Github"

@@ -3,7 +3,7 @@ import { PostgrestError } from '@supabase/supabase-js'
 import { useEffect, useState } from 'react'
 import { BiTask } from 'react-icons/bi'
 import HomeCard from '../components/home/HomeCard'
-import supabase from '../supabaseClient'
+import supabase from '../database/supabaseClient'
 import Project from '../models/projectModel'
 import Loading from '../components/projects/Loading'
 import Error from '../components/projects/Error'
@@ -20,7 +20,7 @@ const ProjectsPage = (): JSX.Element => {
         setIsLoading(false)
         return
       }
-      setProjects(data)
+      setProjects(data as Project[])
       setIsLoading(false)
     }
 

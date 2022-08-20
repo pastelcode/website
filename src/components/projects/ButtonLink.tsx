@@ -1,14 +1,17 @@
-import { Box, Link, Button, HStack, Text } from '@chakra-ui/react'
+import { Link, Button, HStack, Text, ButtonProps } from '@chakra-ui/react'
+
+interface ButtonLinkProps extends ButtonProps {
+  name: string
+  icon: JSX.Element
+  link: string
+}
 
 const ButtonLink = ({
   name,
   icon,
   link,
-}: {
-  name: string
-  icon: JSX.Element
-  link: string
-}): JSX.Element => (
+  ...props
+}: ButtonLinkProps): JSX.Element => (
   <Button
     as={Link}
     href={link}
@@ -28,6 +31,7 @@ const ButtonLink = ({
       textDecoration: 'none',
       color: 'white',
     }}
+    {...props}
   >
     <HStack>
       {icon}

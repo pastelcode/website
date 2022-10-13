@@ -1,17 +1,17 @@
 import {
-  SimpleGrid,
-  VStack,
+  Box,
+  Heading,
   HStack,
   Image,
-  Heading,
+  SimpleGrid,
   Text,
-  Box,
   useMediaQuery,
+  VStack,
 } from '@chakra-ui/react'
-import { FaApple, FaGooglePlay } from 'react-icons/fa'
 import { BsGithub } from 'react-icons/bs'
-import ButtonLink from './ButtonLink'
+import { FaApple, FaGooglePlay } from 'react-icons/fa'
 import Project from '../../models/projectModel'
+import ButtonLink from './ButtonLink'
 
 const ProjectsGrid = ({ projects }: { projects: Project[] }): JSX.Element => {
   const [isSmallDisplayDevice] = useMediaQuery('(max-width: 600px)')
@@ -19,21 +19,23 @@ const ProjectsGrid = ({ projects }: { projects: Project[] }): JSX.Element => {
   return (
     <SimpleGrid columns={isSmallDisplayDevice ? 1 : 2}>
       {projects.map((project) => (
-        <VStack key={project.id} background="whiteAlpha.200" borderRadius="md">
+        <VStack
+          key={project.id}
+          background="whiteAlpha.100"
+          borderRadius="2xl"
+          overflow="hidden"
+        >
           <Image
             src={project.logo}
             alt={project.name}
             width="100%"
             objectFit="cover"
-            borderTopRadius="md"
           />
-          <Box padding="4" paddingTop="2" width="100%">
-            <Heading as="h4" size="md" textAlign="center">
-              {project.name}
-            </Heading>
-            <Box height="1" />
-            <Text textAlign="center">{project.description}</Text>
-            <Box height="3" />
+          <Box padding="6" width="100%">
+            <Heading as="h4">{project.name}</Heading>
+            <Box height="2" />
+            <Text>{project.description}</Text>
+            <Box height="6" />
             {project.playStoreLink || project.appStoreLink ? (
               <HStack width="100%">
                 {project.playStoreLink && (

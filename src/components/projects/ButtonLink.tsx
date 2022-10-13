@@ -1,4 +1,4 @@
-import { Link, Button, HStack, Text, ButtonProps } from '@chakra-ui/react'
+import { Button, ButtonProps, HStack, Link, Text } from '@chakra-ui/react'
 
 interface ButtonLinkProps extends ButtonProps {
   name: string
@@ -19,7 +19,7 @@ const ButtonLink = ({
     colorScheme="gray"
     color="whiteAlpha.700"
     background="transparent"
-    borderColor="whiteAlpha.700"
+    borderColor="whiteAlpha.300"
     borderWidth="1px"
     borderStyle="solid"
     width="100%"

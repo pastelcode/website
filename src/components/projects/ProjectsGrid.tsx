@@ -4,6 +4,7 @@ import {
   HStack,
   Image,
   SimpleGrid,
+  Spacer,
   Text,
   useMediaQuery,
   VStack,
@@ -17,7 +18,7 @@ const ProjectsGrid = ({ projects }: { projects: Project[] }): JSX.Element => {
   const [isSmallDisplayDevice] = useMediaQuery('(max-width: 600px)')
 
   return (
-    <SimpleGrid columns={isSmallDisplayDevice ? 1 : 2}>
+    <SimpleGrid columns={isSmallDisplayDevice ? 1 : 2} spacing={7}>
       {projects.map((project) => (
         <VStack
           key={project.id}
@@ -31,11 +32,11 @@ const ProjectsGrid = ({ projects }: { projects: Project[] }): JSX.Element => {
             width="100%"
             objectFit="cover"
           />
-          <Box padding="6" width="100%">
+          <VStack padding="6" width="100%" height="100%" alignItems="start">
             <Heading as="h4">{project.name}</Heading>
-            <Box height="2" />
             <Text>{project.description}</Text>
-            <Box height="6" />
+            <Box height="2" />
+            <Spacer />
             {project.playStoreLink || project.appStoreLink ? (
               <HStack width="100%">
                 {project.playStoreLink && (
@@ -43,7 +44,7 @@ const ProjectsGrid = ({ projects }: { projects: Project[] }): JSX.Element => {
                     name="Play Store"
                     icon={<FaGooglePlay />}
                     link={project.playStoreLink}
-                    marginBottom={4}
+                    marginBottom={2}
                   />
                 )}
                 {project.appStoreLink && (
@@ -51,7 +52,7 @@ const ProjectsGrid = ({ projects }: { projects: Project[] }): JSX.Element => {
                     name="App Store"
                     icon={<FaApple />}
                     link={project.appStoreLink}
-                    marginBottom={4}
+                    marginBottom={2}
                   />
                 )}
               </HStack>
@@ -63,7 +64,7 @@ const ProjectsGrid = ({ projects }: { projects: Project[] }): JSX.Element => {
                 link={project.githubLink}
               />
             )}
-          </Box>
+          </VStack>
         </VStack>
       ))}
     </SimpleGrid>

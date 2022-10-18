@@ -1,6 +1,5 @@
 // Form information is being sent to Netlify's forms service
 
-import { useSearchParams } from 'react-router-dom'
 import {
   Box,
   Button,
@@ -13,15 +12,15 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import { Field, Form, Formik, FormikHelpers } from 'formik'
+import { useSearchParams } from 'react-router-dom'
 import * as yup from 'yup'
 
 import TextInput from '../components/validatedInputs/TextInput'
 
 import { errorToast, successToast } from '../components/contact/statusToasts'
 
-import layeredWavesUp from '../assets/layered-waves-up.svg'
-import layeredWavesDown from '../assets/layered-waves-down.svg'
 import { CheckIcon } from '@chakra-ui/icons'
+import layeredWavesUp from '../assets/layered-waves-up.svg'
 
 const ContactPage = (): JSX.Element => {
   const encode = (data: FormValues) => {
@@ -178,14 +177,6 @@ const ContactPage = (): JSX.Element => {
           }}
         </Formik>
       </Box>
-      <Image
-        src={layeredWavesDown}
-        alt="Waves illustration"
-        height={20}
-        width="100%"
-        objectFit="cover"
-        objectPosition="top"
-      />
     </VStack>
   )
 }

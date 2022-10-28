@@ -19,13 +19,10 @@ const ButtonLink = ({
     colorScheme="gray"
     color="whiteAlpha.700"
     background="transparent"
-    borderColor="whiteAlpha.300"
-    borderWidth="1px"
-    borderStyle="solid"
-    width="100%"
     willChange="transform"
     transition="all 0.2s ease"
     transform="translateY(0)"
+    paddingX="1"
     _hover={{
       transform: 'translateY(-3px)',
       textDecoration: 'none',
@@ -33,7 +30,7 @@ const ButtonLink = ({
     }}
     {...props}
   >
-    <HStack>
+    <HStack alignItems="center">
       {icon}
       <Text>{name}</Text>
     </HStack>

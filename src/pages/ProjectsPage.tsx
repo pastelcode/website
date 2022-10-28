@@ -28,7 +28,8 @@ const ProjectsPage = (): JSX.Element => {
         setIsLoading(false)
         return
       }
-      setProjects(data as Project[])
+      const reversedData = (data as Project[]).reverse()
+      setProjects(reversedData)
       setIsLoading(false)
     }
 

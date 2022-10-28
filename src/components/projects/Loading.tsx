@@ -1,11 +1,11 @@
-import { Box, Text, Spinner, Center } from '@chakra-ui/react'
+import { Box, Center, Spinner, Text } from '@chakra-ui/react'
 
 const Loading = (): JSX.Element => (
   <>
     <Center>
-      <Spinner size={'xl'} />
+      <Spinner size="xl" />
     </Center>
-    <Box height={'2'} />
+    <Box height="6" />
     <Text textAlign="center">Cargando proyectos...</Text>
   </>
 )

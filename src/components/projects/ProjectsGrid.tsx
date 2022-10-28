@@ -4,7 +4,6 @@ import {
   HStack,
   Image,
   SimpleGrid,
-  Spacer,
   Text,
   useMediaQuery,
   VStack,
@@ -18,42 +17,47 @@ const ProjectsGrid = ({ projects }: { projects: Project[] }): JSX.Element => {
   const [isSmallDisplayDevice] = useMediaQuery('(max-width: 600px)')
 
   return (
-    <SimpleGrid columns={isSmallDisplayDevice ? 1 : 2} spacing={7}>
+    <SimpleGrid
+      columns={isSmallDisplayDevice ? 1 : 2}
+      spacing={isSmallDisplayDevice ? 7 : 14}
+    >
       {projects.map((project) => (
-        <VStack
-          key={project.id}
-          background="whiteAlpha.100"
-          borderRadius="2xl"
-          overflow="hidden"
-        >
+        <VStack key={project.id} overflow="hidden">
           <Image
             src={project.logo}
             alt={project.name}
             width="100%"
             objectFit="cover"
+            borderRadius="2xl"
           />
-          <VStack padding="6" width="100%" height="100%" alignItems="start">
+          <VStack
+            paddingY="6"
+            paddingX="1"
+            width="100%"
+            height="100%"
+            alignItems="start"
+          >
             <Heading as="h4">{project.name}</Heading>
             <Text>{project.description}</Text>
             <Box height="2" />
-            <Spacer />
             {project.playStoreLink || project.appStoreLink ? (
-              <HStack width="100%">
+              <HStack width="100%" alignItems="center">
                 {project.playStoreLink && (
                   <ButtonLink
                     name="Play Store"
                     icon={<FaGooglePlay />}
                     link={project.playStoreLink}
-                    marginBottom={2}
                   />
                 )}
                 {project.appStoreLink && (
-                  <ButtonLink
-                    name="App Store"
-                    icon={<FaApple />}
-                    link={project.appStoreLink}
-                    marginBottom={2}
-                  />
+                  <>
+                    <Box width="1" />
+                    <ButtonLink
+                      name="App Store"
+                      icon={<FaApple />}
+                      link={project.appStoreLink}
+                    />
+                  </>
                 )}
               </HStack>
             ) : null}

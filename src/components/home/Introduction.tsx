@@ -1,14 +1,14 @@
-import { Link as RouterLink } from 'react-router-dom'
-import { VStack, Heading, Text, Box, Button } from '@chakra-ui/react'
 import { ArrowForwardIcon } from '@chakra-ui/icons'
-
-import HomeCard from './HomeCard'
-import ContactUsButton from '../ContactUsButton'
+import { Box, Button, Heading, Text, VStack } from '@chakra-ui/react'
+import { Link as RouterLink } from 'react-router-dom'
 import bubbles from '../../assets/bubbles.svg'
 
+import ContactUsButton from '../ContactUsButton'
+import HomeCard from './HomeCard'
+
 const Introduction = (): JSX.Element => (
-  <HomeCard background={`url(${bubbles})`} compact>
-    <VStack paddingY="7">
+  <HomeCard background={`url(${bubbles})`} compact hasBlur>
+    <VStack paddingY="7" width="100%">
       <Heading textAlign="center" size="4xl" letterSpacing="tighter">
         ¿Aplicación móvil?
       </Heading>

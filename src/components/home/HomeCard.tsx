@@ -3,18 +3,30 @@ import { Box } from '@chakra-ui/react'
 interface Props {
   background?: string
   compact?: boolean
+  hasBlur?: boolean
   children: JSX.Element | JSX.Element[]
 }
 
-const HomeCard = ({ background, compact, children }: Props): JSX.Element => (
-  <Box background={background || 'none'} paddingY="10" width="100%">
+const HomeCard = ({
+  background,
+  compact,
+  hasBlur,
+  children,
+}: Props): JSX.Element => (
+  <Box background={background || 'none'} width="100%">
     <Box
-      marginLeft="auto"
-      marginRight="auto"
-      width={compact ? '90%' : '100%'}
-      maxWidth={compact ? '1000px' : 'none'}
+      backdropFilter="auto"
+      backdropBlur={hasBlur ? '3px' : undefined}
+      paddingY="10"
     >
-      {children}
+      <Box
+        marginLeft="auto"
+        marginRight="auto"
+        width={compact ? '90%' : '100%'}
+        maxWidth={compact ? '1000px' : 'none'}
+      >
+        {children}
+      </Box>
     </Box>
   </Box>
 )

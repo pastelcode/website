@@ -52,7 +52,7 @@ const ProjectsPage = (): JSX.Element => {
       />
       <Center>
         <HStack>
-          <Heading>Proyectos</Heading>
+          <Heading>Projects</Heading>
         </HStack>
       </Center>
       <Box width="90%" maxWidth="900px">
@@ -69,7 +69,7 @@ const ProjectsPage = (): JSX.Element => {
             <Box height="20" />
             <Progress isIndeterminate colorScheme="brand" size="xs" />
             <Box height="5" />
-            <Text textAlign="center">Más en desarrollo...</Text>
+            <Text textAlign="center">Developing...</Text>
           </>
         )}
       </Box>

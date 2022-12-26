@@ -1,16 +1,14 @@
 import {
   Box,
-  HStack,
+  Heading,
   Image,
-  VStack,
   LinkBox,
   LinkOverlay,
-  Icon,
-  Heading,
+  VStack,
 } from '@chakra-ui/react'
-import { socialMedia } from '../../config/brandInformation'
 import pastelLetters from '../../assets/pastel-letters.svg'
 import pastelLogo from '../../assets/pastel.svg'
+import { socialMedia } from '../../config/brandInformation'
 
 const Footer = (): JSX.Element => {
   return (
@@ -22,14 +20,14 @@ const Footer = (): JSX.Element => {
         <Box height={6} />
         {socialMedia.map(({ url, name, icon }) => (
           <LinkBox key={url}>
-            <HStack marginBottom={4}>
-              <Icon as={icon} boxSize={6} />
+            <VStack marginBottom={4}>
+              {icon}
               <Heading as="h6" size="md">
                 <LinkOverlay href={url} isExternal>
                   {name}
                 </LinkOverlay>
               </Heading>
-            </HStack>
+            </VStack>
           </LinkBox>
         ))}
       </VStack>

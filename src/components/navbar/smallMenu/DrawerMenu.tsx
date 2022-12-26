@@ -1,12 +1,12 @@
-import { RefObject } from 'react'
 import {
   Drawer,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  DrawerHeader,
   DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
 } from '@chakra-ui/react'
+import { RefObject } from 'react'
 
 import DrawerLinkItem from './DrawerLinkItem'
 
@@ -29,7 +29,7 @@ const DrawerMenu = ({ isOpen, onClose, buttonReference }: Props) => {
       <DrawerOverlay />
       <DrawerContent>
         <DrawerCloseButton />
-        <DrawerHeader fontSize="3xl">Menú</DrawerHeader>
+        <DrawerHeader fontSize="3xl">Menu</DrawerHeader>
         <DrawerBody>
           {applicationRoutes.map((route) => (
             <DrawerLinkItem key={route.path} {...route} />

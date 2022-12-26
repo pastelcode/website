@@ -1,18 +1,19 @@
 import {
+  ChakraProvider,
   extendTheme,
   withDefaultColorScheme,
-  ChakraProvider,
 } from '@chakra-ui/react'
 import { HashRouter as Router, Route, Routes } from 'react-router-dom'
+import 'remixicon/fonts/remixicon.css'
 
 import HomePage from '../pages/HomePage'
 import Footer from './footer/Footer'
 import NavBar from './navbar/NavBar'
 
-import customizedTheme from '../theme'
 import ContactPage from '../pages/ContactPage'
 import NotFoundPage from '../pages/NotFoundPage'
 import ProjectsPage from '../pages/ProjectsPage'
+import customizedTheme from '../theme'
 
 const theme = extendTheme(
   customizedTheme,
@@ -26,8 +27,8 @@ const App = () => {
         <NavBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/contacto" element={<ContactPage />} />
-          <Route path="/proyectos" element={<ProjectsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />

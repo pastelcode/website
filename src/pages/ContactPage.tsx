@@ -37,13 +37,13 @@ const ContactPage = (): JSX.Element => {
   const DataScheme = yup.object().shape({
     name: yup
       .string()
-      .min(2, 'Debe tener al menos 2 caracteres')
-      .max(50, 'Debe ser de 50 caracteres como máximo')
-      .required('Tu nombre es requerido'),
+      .min(2, 'Must be at least 2 characters')
+      .max(50, 'Must be 50 characters as maximum')
+      .required('Your name is required'),
     email: yup
       .string()
-      .email('Correo inválido')
-      .required('Tu correo es requerido'),
+      .email('Invalid email')
+      .required('Your email is required'),
   })
 
   interface FormValues {
@@ -99,7 +99,7 @@ const ContactPage = (): JSX.Element => {
         objectFit="cover"
         objectPosition="bottom"
       />
-      <Heading>Contacto</Heading>
+      <Heading>Contact</Heading>
       <Box width="90%" maxWidth="500px">
         <Formik
           validationSchema={DataScheme}
@@ -122,7 +122,7 @@ const ContactPage = (): JSX.Element => {
                       <TextInput
                         name="name"
                         value={values.name}
-                        label="Nombre"
+                        label="Name"
                         isTouched={touched.name}
                         isRequired
                         autoFocus
@@ -139,7 +139,7 @@ const ContactPage = (): JSX.Element => {
                         name="email"
                         value={values.email}
                         type="email"
-                        label="Correo electrónico"
+                        label="Email"
                         isTouched={touched.email}
                         isRequired
                         errorDescription={errors.email}
@@ -152,13 +152,13 @@ const ContactPage = (): JSX.Element => {
                   <Field name="message" type="textarea">
                     {() => (
                       <FormControl>
-                        <FormLabel htmlFor="message">Mensaje</FormLabel>
+                        <FormLabel htmlFor="message">Message</FormLabel>
                         <Textarea
                           id="message"
                           value={values.message}
                           onChange={handleChange}
                           onBlur={handleBlur}
-                          placeholder="El proyecto será lanzado al mercado el..."
+                          placeholder="I need the project to be..."
                         />
                       </FormControl>
                     )}
@@ -169,7 +169,7 @@ const ContactPage = (): JSX.Element => {
                     size="lg"
                     leftIcon={<CheckIcon />}
                   >
-                    Enviar
+                    Send
                   </Button>
                 </VStack>
               </Form>

@@ -1,15 +1,13 @@
 import {
+  Box,
   Button,
   Heading,
-  Image,
-  Text,
-  VStack,
-  useMediaQuery,
-  Box,
   HStack,
+  Text,
+  useMediaQuery,
+  VStack,
 } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom'
-import lostPerson from '../assets/lost-person.svg'
 
 const NotFoundPage = (): JSX.Element => {
   const [isSmallDisplayDevice] = useMediaQuery('(max-width: 600px)')
@@ -17,19 +15,15 @@ const NotFoundPage = (): JSX.Element => {
   const content = (
     <>
       <VStack spacing={5}>
-        <Heading textAlign="center">¡Ups! Página no encontrada</Heading>
+        <i className="ri-compass-3-fill ri-4x"></i>
+        <Heading textAlign="center">Ups! Page not found</Heading>
         <Text textAlign="center" fontSize="xl">
-          Creo que hemos ido demasiado lejos
+          Seems we've gone too far
         </Text>
         <Button as={RouterLink} to="/" colorScheme="gray">
-          Regresemos a casa
+          Let's go home
         </Button>
       </VStack>
-      <Image
-        src={lostPerson}
-        alt="Ilustración de persona perdida"
-        height="xs"
-      />
     </>
   )
 

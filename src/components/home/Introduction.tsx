@@ -10,18 +10,18 @@ const Introduction = (): JSX.Element => (
   <HomeCard background={`url(${bubbles})`} compact hasBlur>
     <VStack paddingY="7" width="100%">
       <Heading textAlign="center" size="4xl" letterSpacing="tighter">
-        ¿Aplicación móvil?
+        Mobile app?
       </Heading>
       <Box height="2" />
       <Text textAlign="center" fontSize="xl" fontWeight="medium">
-        Nosotros te cubrimos
+        Got you
       </Text>
       <Box height="4" />
       <ContactUsButton />
       <Box height="1" />
       <Button
         as={RouterLink}
-        to="/proyectos"
+        to="/projects"
         colorScheme="gray"
         willChange="filter"
         filter="none"
@@ -31,7 +31,7 @@ const Introduction = (): JSX.Element => (
         }}
         rightIcon={<ArrowForwardIcon />}
       >
-        Explora nuestros proyectos
+        Explore projects
       </Button>
     </VStack>
   </HomeCard>

@@ -10,17 +10,17 @@ export interface Route {
 const applicationRoutes: Route[] = [
   {
     path: '/',
-    name: 'Inicio',
+    name: 'Home',
     icon: BiHome,
   },
   {
-    path: '/proyectos',
-    name: 'Proyectos',
+    path: '/projects',
+    name: 'Projects',
     icon: BiTask,
   },
   {
-    path: '/contacto',
-    name: 'Contacto',
+    path: '/contact',
+    name: 'Contact',
     icon: BiAt,
   },
 ]

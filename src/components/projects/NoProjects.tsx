@@ -1,8 +1,8 @@
 import {
   Alert,
+  AlertDescription,
   AlertIcon,
   AlertTitle,
-  AlertDescription,
 } from '@chakra-ui/react'
 
 const NoProjects = (): JSX.Element => (
@@ -18,11 +18,10 @@ const NoProjects = (): JSX.Element => (
   >
     <AlertIcon boxSize="40px" marginRight={0} />
     <AlertTitle marginTop={4} marginBottom={1} fontSize="lg">
-      Qué vergüenza, pero...
+      I'm ashamed...
     </AlertTitle>
     <AlertDescription maxWidth="sm">
-      Comunícate con nosotros para obtener acceso directo a todos nuestros
-      proyectos
+      Contact me to get access to all projects
     </AlertDescription>
   </Alert>
 )

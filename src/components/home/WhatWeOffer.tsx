@@ -1,87 +1,60 @@
 import {
-  Heading,
-  VStack,
   Box,
-  Text,
-  Image,
+  Heading,
   SimpleGrid,
   useMediaQuery,
+  VStack,
 } from '@chakra-ui/react'
 
 import HomeCard from './HomeCard'
 
-import appInstallationIllustration from '../../assets/app_installation.svg'
-import mobilePrototypingIllustration from '../../assets/mobile_prototyping.svg'
-import onlineShoppingIllustration from '../../assets/online_shopping.svg'
-import fastLoadingIllustration from '../../assets/fast_loading.svg'
+const Section = ({
+  illustration,
+  title,
+  isReversed = false,
+}: {
+  illustration: JSX.Element
+  title: string
+  isReversed?: boolean
+}): JSX.Element => {
+  const [isSmallDisplayDevice] = useMediaQuery('(max-width: 600px)')
+  isReversed = isSmallDisplayDevice ? false : isReversed
+
+  return (
+    <SimpleGrid
+      columns={1}
+      spacingY={isSmallDisplayDevice ? 10 : undefined}
+      color="body.500"
+    >
+      <VStack alignItems="center" alignSelf="center">
+        {illustration}
+        <Heading letterSpacing="tight" fontSize="3xl" textAlign="center">
+          {title}
+        </Heading>
+      </VStack>
+    </SimpleGrid>
+  )
+}
 
 const WhatWeOffer = (): JSX.Element => (
   <HomeCard compact>
     <Box borderRadius="3xl" background="brand.500" marginX="auto" padding="10">
-      <SimpleGrid spacingY="20">
+      <SimpleGrid spacingY="10">
         <Section
-          title="Android, iOS y escritorio"
-          description="Alcanza cada sector de tu público objetivo al ofrecer soluciones para cada tipo de usuario"
-          illustrationPath={appInstallationIllustration}
+          title="Android and iOS"
+          illustration={<i className="ri-device-line ri-4x" />}
         />
         <Section
-          title="Diseños modernos e intuitivos"
-          description="Cuidamos cada aspecto de nuestros diseños de interfaces para que tus usuarios disfruten de una navegación satisfactoria y sin obstáculos"
-          illustrationPath={mobilePrototypingIllustration}
-          isReversed
+          title="Modern and intuitive designs"
+          illustration={<i className="ri-paint-brush-line ri-4x" />}
         />
         <Section
-          title="Tecnologías modernas"
-          description="Nuestro enfoque está construido sobre tecnologías modernas, como lo es Flutter, para hacer un desarrollo rápido, mantenible y eficaz"
-          illustrationPath={fastLoadingIllustration}
-        />
-        <Section
-          title="Organiza toda la información"
-          description="Obtén la libertad de manejar toda la información de tu aplicación y de tus servicios"
-          illustrationPath={onlineShoppingIllustration}
-          isReversed
+          title="Edge technologies"
+          illustration={<i className="ri-shield-flash-line ri-4x" />}
         />
       </SimpleGrid>
     </Box>
   </HomeCard>
 )
-
-const Section = ({
-  illustrationPath,
-  title,
-  description,
-  isReversed = false,
-}: {
-  illustrationPath: string
-  title: string
-  description: string
-  isReversed?: boolean
-}): JSX.Element => {
-  const [isSmallDisplayDevice] = useMediaQuery('(max-width: 600px)')
-
-  isReversed = isSmallDisplayDevice ? false : isReversed
-
-  const illustration = (
-    <Image src={illustrationPath} alt={title} alignSelf="center" />
-  )
-
-  return (
-    <SimpleGrid
-      columns={isSmallDisplayDevice ? 1 : 2}
-      spacingX="10"
-      spacingY={isSmallDisplayDevice ? 10 : undefined}
-      color="body.500"
-    >
-      {!isReversed && illustration}
-      <VStack alignItems="start" alignSelf="center">
-        <Heading letterSpacing="tight" fontSize="3xl">
-          {title}
-        </Heading>
-        <Text>{description}</Text>
-      </VStack>
-      {isReversed && illustration}
-    </SimpleGrid>
-  )
-}
 
 export default WhatWeOffer

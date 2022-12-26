@@ -3,14 +3,13 @@ import CTA from '../components/CTA'
 
 import Introduction from '../components/home/Introduction'
 import WhatWeOffer from '../components/home/WhatWeOffer'
-import WhyToChooseUs from '../components/home/WhyToChooseUs'
 
 const HomePage = (): JSX.Element => {
   return (
     <VStack>
       <Introduction />
       <WhatWeOffer />
-      <WhyToChooseUs />
+      {/* <WhyToChooseUs /> */}
       <CTA />
     </VStack>
   )
